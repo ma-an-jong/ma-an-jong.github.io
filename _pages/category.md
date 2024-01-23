@@ -1,9 +1,6 @@
 ---
+title: "Posts by Category"
+layout: categories
 permalink: /category/
-title: "Category"
-toc: true
-toc_sticky: true
-toc_label: "toc_label_category"
+author_profile: true
 ---
-
-공부 카테고리
