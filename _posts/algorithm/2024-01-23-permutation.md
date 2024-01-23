@@ -1,11 +1,10 @@
 ---
 title: "[Algorithm] 순열, 조합, 부분집합"
 excerpt: "집합 문제에서 순열, 조합, 부분 집합을 구해보자."
-
 categories:
-	- Algorithm
+    - Algorithm
 tags:
-	- 알고리즘
+    - [Algorithm]
 
 toc: true
 toc_sticky: true
@@ -22,8 +21,9 @@ last_modified_at: 2024-01-23
 
 순열이란 크기가 N인 ~~순서가 정해지지 않은~~ 집합 A에서 각 원소들을 순서대로 나열한 모든 경우의 수이다.
 
-![크기가 3인 순열](/image/posts/algorithm/permutation/img1.png){: width="100" height="100"}
-
+<div style="text-align: center;">
+    <img width="300" height="300" src="/image/posts/algorithm/permutation/img1.png">
+</div>
 
 크기가 N인 순열의 모든 경우의 수는 N!개이다.
 
@@ -35,7 +35,7 @@ for(int i = 0 ; i < 3; i++) { //첫번째 올 수의 index 선택
 		if(i == j) continue;	// 만약, 같은 수를 선택했다면 넘어가기
 		for(int k = 0; k < 3; k++) { //세번째 올 수의 index 선택
 			if(j == k || i == k) continue; // 만약, 같은 수를 선택했다면 넘어가기
-			System.out.println(arr[i] + " " + arr[j] + " " + arr[k]);	 // 순열 출력
+			System.out.println(arr[i] + " " + arr[j] + " " + arr[k]);// 순열 출력
 		}
 	}
 }
@@ -133,7 +133,10 @@ public static void combination(int idx, int k, int n, int cnt) {
 
 부분 집합은 집합 A의 일부 원소를 갖는 집합이다. 조합에서는 N개 원소 중 K개를 선택한 모든 경우의 수라면 부분 집합은 K가 0~N일때, 모든 조합이 부분 집합이며 경우의 수는 총 2^N이다.
 
-![Untitled 1](/image/posts/algorithm/permutation/img2.png)
+
+<div style="text-align: center;">
+    <img src="/image/posts/algorithm/permutation/img2.png">
+</div>
 
 ### 부분 집합의 특징
 
