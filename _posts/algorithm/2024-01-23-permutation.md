@@ -30,14 +30,14 @@ last_modified_at: 2024-01-23
 크기가 3인 집합에서 순열은 다음과 같이 구현할 수 있다.
 
 ```java
-for(int i = 0 ; i < 3; i++) { //첫번째 올 수의 index 선택
-	for(int j = 0; j < 3; j++) { // 두번째 올 수의 index 선택
-		if(i == j) continue;	// 만약, 같은 수를 선택했다면 넘어가기
-		for(int k = 0; k < 3; k++) { //세번째 올 수의 index 선택
-			if(j == k || i == k) continue; // 만약, 같은 수를 선택했다면 넘어가기
-			System.out.println(arr[i] + " " + arr[j] + " " + arr[k]);// 순열 출력
-		}
-	}
+for(int i = 0 ; i < 3; i++) { // 첫번째 올 수의 index 선택
+  for(int j = 0; j < 3; j++) { // 두번째 올 수의 index 선택
+    if(i == j) continue;  // 만약, 같은 수를 선택했다면 넘어가기
+    for(int k = 0; k < 3; k++) { // 세번째 올 수의 index 선택
+      if(j == k || i == k) continue; // 만약, 같은 수를 선택했다면 넘어가기
+      System.out.println(arr[i] + " " + arr[j] + " " + arr[k]); // 순열 출력
+    }
+  }
 }
 ```
 
@@ -61,24 +61,23 @@ static boolean[] visited;
 static int[] select;
 
 public static void permutation(int k , int n) {
-	
-	if(k == n) {
-			for(int i = 0 ; i < n; i++) {
-				System.out.print(select[i] + " ");
-			}		
-			Systemout.println();
-			
-		return;
-	}
 
-	for(int i = 0; i < n; i++) {
-		if(!visited[i]) {
-			visited[i] = true;
-			select[k] = arr[i];
-			permutation(arr,visited,select, k+1,n);
-			visited[i] = false;
-		}
-	}
+  if(k == n) {
+    for(int i = 0 ; i < n; i++) {
+      System.out.print(select[i] + " ");
+    }		
+    System.out.println();
+    return;
+  }
+
+  for(int i = 0; i < n; i++) {
+    if(!visited[i]) {
+      visited[i] = true;
+      select[k] = arr[i];
+      permutation(arr,visited,select, k+1,n);
+      visited[i] = false;
+    }
+  }
 }
 ```
 
@@ -105,25 +104,23 @@ static int[] arr;
 static int[] select;
 
 public static void combination(int idx, int k, int n, int cnt) {
-	
-		if(cnt == k) {
-				for(int i = 0 ; i < k; i++) {
-					System.out.print(select[i] + " ");
-				}		
-				System.out.println();
-				
-			return;
-		}
-	
-		if(idx == n) {
-			return;
-		}
 
-		combination(idx+1,k,n,cnt); //내가 idx번째 원소에 arr[i]를 선택 안한 경우
-		select[cnt] = arr[i]; 
-		combination(idx+1,k,n,cnt+1); //idx번째 원소에 arr[i]를 선택하여 idx+1번째 원소를 탐색
-	
-	}
+  if(cnt == k) {
+    for(int i = 0 ; i < k; i++) {
+      System.out.print(select[i] + " ");
+    }		
+    System.out.println();
+    return;
+  }
+
+  if(idx == n) {
+    return;
+  }
+
+  combination(idx+1,k,n,cnt); //내가 idx번째 원소에 arr[i]를 선택 안한 경우
+  select[cnt] = arr[i]; 
+  combination(idx+1,k,n,cnt+1); //idx번째 원소에 arr[i]를 선택하여 idx+1번째 원소를 탐색
+
 }
 ```
 
@@ -153,17 +150,16 @@ static int[] arr;
 static int[] select;
 
 static void subset(int idx, int cnt, int n) {
+  if(idx == n) {
+    for(int i = 0 ; i < cnt;i++) {
+      System.out.print(select[i] + " ");
+    }		
+    System.out.println();
+    return;
+  }
 
-	if(idx == n) {
-		for(int i = 0 ; i < cnt;i++) {
-			System.out.print(select[i] + " ");
-		}		
-		System.out.println();
-		return;
-	}
-
-	subset(idx+1,cnt,n); // 현재 원소를 선택하지 않고 건너 뜀
-	select[cnt] = arr[idx]; // 현재 원소를 선택하고 저장
-	subset(idx+1,cnt+1,n); // 선택한 원소의 개수를 증가시키고 다음 인덱스를 탐색
+  subset(idx+1,cnt,n); // 현재 원소를 선택하지 않고 건너 뜀
+  select[cnt] = arr[idx]; // 현재 원소를 선택하고 저장
+  subset(idx+1,cnt+1,n); // 선택한 원소의 개수를 증가시키고 다음 인덱스를 탐색
 }
 ```
