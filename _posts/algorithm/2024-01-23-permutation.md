@@ -12,7 +12,7 @@ toc_label: "목차"
 toc_icon: "sticky-note"
 
 date: 2024-01-23
-last_modified_at: 2024-01-23
+last_modified_at: 2024-01-24
 ---
 
 ## 순열(Permutation)
@@ -29,17 +29,7 @@ last_modified_at: 2024-01-23
 
 크기가 3인 집합에서 순열은 다음과 같이 구현할 수 있다.
 
-```java
-for(int i = 0 ; i < 3; i++) { // 첫번째 올 수의 index 선택
-  for(int j = 0; j < 3; j++) { // 두번째 올 수의 index 선택
-    if(i == j) continue;  // 만약, 같은 수를 선택했다면 넘어가기
-    for(int k = 0; k < 3; k++) { // 세번째 올 수의 index 선택
-      if(j == k || i == k) continue; // 만약, 같은 수를 선택했다면 넘어가기
-      System.out.println(arr[i] + " " + arr[j] + " " + arr[k]); // 순열 출력
-    }
-  }
-}
-```
+<script src="https://gist.github.com/ma-an-jong/6de3309e96c9bd790768f3d0a150155e.js"></script>
 
 크기가 3인 순열에서 3개의 수를 선택하기 위한 모든 경우의 수를 탐색하기 위해서 반복문을 사용하였다. 즉, 크기가 N인 집합에서 순열을 만들려면 for문을 N번 중첩해야한다. 
 
@@ -55,31 +45,7 @@ for(int i = 0 ; i < 3; i++) { // 첫번째 올 수의 index 선택
 
 각 재귀함수에서는 k번째 원소를 선택한다. 이미 선택된 원소는 visited 배열로 체크하여 중복을 피할 수 있다. 또한 선택한 수는 select 배열에 저장한다.
 
-```java
-static int[] arr;
-static boolean[] visited;
-static int[] select;
-
-public static void permutation(int k , int n) {
-
-  if(k == n) {
-    for(int i = 0 ; i < n; i++) {
-      System.out.print(select[i] + " ");
-    }		
-    System.out.println();
-    return;
-  }
-
-  for(int i = 0; i < n; i++) {
-    if(!visited[i]) {
-      visited[i] = true;
-      select[k] = arr[i];
-      permutation(arr,visited,select, k+1,n);
-      visited[i] = false;
-    }
-  }
-}
-```
+<script src="https://gist.github.com/ma-an-jong/b97f18faab8d9223baee1250b6594dd6.js"></script>
 
 ## 조합(Combination)
 
@@ -99,30 +65,7 @@ public static void permutation(int k , int n) {
 
 방법은 순열과 비슷하게 선택된 원소를 저장하는 select를 이용하고 cnt를 k까지 증가시키면서 모든 조합을 탐색할 수 있다.
 
-```java
-static int[] arr;
-static int[] select;
-
-public static void combination(int idx, int k, int n, int cnt) {
-
-  if(cnt == k) {
-    for(int i = 0 ; i < k; i++) {
-      System.out.print(select[i] + " ");
-    }		
-    System.out.println();
-    return;
-  }
-
-  if(idx == n) {
-    return;
-  }
-
-  combination(idx+1,k,n,cnt); //내가 idx번째 원소에 arr[i]를 선택 안한 경우
-  select[cnt] = arr[i]; 
-  combination(idx+1,k,n,cnt+1); //idx번째 원소에 arr[i]를 선택하여 idx+1번째 원소를 탐색
-
-}
-```
+<script src="https://gist.github.com/ma-an-jong/029eda096448fd7f0258604098abe2f5.js"></script>
 
 ## 부분집합(Subset)
 
@@ -145,21 +88,4 @@ public static void combination(int idx, int k, int n, int cnt) {
 
 ### 구현
 
-```jsx
-static int[] arr;
-static int[] select;
-
-static void subset(int idx, int cnt, int n) {
-  if(idx == n) {
-    for(int i = 0 ; i < cnt;i++) {
-      System.out.print(select[i] + " ");
-    }		
-    System.out.println();
-    return;
-  }
-
-  subset(idx+1,cnt,n); // 현재 원소를 선택하지 않고 건너 뜀
-  select[cnt] = arr[idx]; // 현재 원소를 선택하고 저장
-  subset(idx+1,cnt+1,n); // 선택한 원소의 개수를 증가시키고 다음 인덱스를 탐색
-}
-```
+<script src="https://gist.github.com/ma-an-jong/5b72133d5bdfef24bf197b5db7e67429.js"></script>
