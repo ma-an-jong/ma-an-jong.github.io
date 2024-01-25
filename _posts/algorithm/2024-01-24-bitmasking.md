@@ -1,6 +1,6 @@
 ---
 title: "[Algorithm] 비트마스킹"
-excerpt: "비트를 활용하여 조합 문제를 풀어보자."
+excerpt: "비트를 활용하여 집합 문제를 빠르고 쉽게 풀 수 있습니다."
 categories:
     - Algorithm
 tags:
