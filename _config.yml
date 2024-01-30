@@ -13,7 +13,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/ma-an-jong/ma-an-jong.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : "ma-an-jong의 블로그"
+masthead_title           : "ma-an-jong의 Wiki"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -93,7 +93,7 @@ analytics:
 author:
   name             : "김민종(Kim MinJong)"
   avatar           : "/image/profile/me.webp"
-  bio              : "공부한 내용을 정리하고 있습니다.\n노션 이사중 \n2024.01.23 ~ "
+  bio              : "공부한 내용을 정리하고 있습니다.<br>노션 이사중...<br> 2024.01.23 ~ "
   location         : "Republic of Korea"
   email            : # links
   links:
