@@ -12,7 +12,7 @@ toc_label: "목차"
 toc_icon: "sticky-note"
 
 date: 2024-01-23
-last_modified_at: 2024-01-24
+last_modified_at: 2024-02-08
 ---
 
 ## 순열(Permutation)
@@ -89,3 +89,31 @@ last_modified_at: 2024-01-24
 ### 구현
 
 <script src="https://gist.github.com/ma-an-jong/5b72133d5bdfef24bf197b5db7e67429.js"></script>
+
+## Next Permutation
+
+### 정의
+
+nPn 순열을 오름차순으로 정렬하였을때, 나올 수 있는 다음 순열을 찾는 방법이다.
+
+### 원리
+
+추가 예정
+
+### 구현
+
+추가예정
+
+## Next Combination
+
+### 정의
+
+nCr 조합을 오름차순으로 정렬하였을때, 나올 수 있는 다음 조합 찾는 방법이다.
+
+### 원리
+
+Next Permutation에 r개 원소를 1로 채워놓고 next permuation을 하였을때 1의 위치는 선택된 원소이다.
+
+### 구현
+
+추가 예정
